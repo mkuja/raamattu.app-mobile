@@ -1,4 +1,5 @@
 import useAbortableFetch from "./useAbortableFetch";
+import {useEffect} from "react";
 
 /**
  * Example data:
@@ -37,5 +38,17 @@ const useBibleBook = (book, chapter) => {
 }
 
 
+const useSearch = (search, setResults) => {
+    const {data, error, loading} = useAbortableFetch(`https://raamattu.app/api/v1/search/${search}`)
 
-export {useBibleBooks, useBibleBook}
+    useEffect(() => {
+        if (!loading && data) {
+            setResults(data.Ok)
+        }
+    }, [data, loading]);
+
+    return {error, loading}
+}
+
+
+export {useBibleBooks, useBibleBook, useSearch}

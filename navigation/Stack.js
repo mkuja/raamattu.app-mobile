@@ -5,6 +5,7 @@ import Chapters from "../screens/Chapters";
 import {NavigationContext} from "../Context/NavigationContext";
 import {createContext, useContext, useState} from "react";
 import Chapter from "../screens/Chapter";
+import Search from "../screens/Search";
 
 
 function Stack() {
@@ -25,6 +26,7 @@ function Stack() {
                     <myStack.Screen name="Kirjat ֍ Raamattu.app" component={LandingScreen}/>
                     <myStack.Screen name={`Luvut ֍ Raamattu.app`} component={Chapters}/>
                     <myStack.Screen name={`Luku ֍ Raamattu.app`} component={Chapter}/>
+                    <myStack.Screen name={`Raamattuhaku ֍ Raamattu.app`} component={Search}/>
                 </myStack.Navigator>
             </NavigationContainer>
         </ctx.Provider>
